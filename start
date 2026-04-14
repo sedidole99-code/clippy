@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-docker compose up --build -d
+PORT="${1:-18080}"
+PORT="$PORT" docker compose up --build -d
+xdg-open "http://localhost:${PORT}" &>/dev/null &
