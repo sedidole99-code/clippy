@@ -50,6 +50,15 @@ PORT=3000 ./start      # custom port
 ./stop                 # stop and remove the container
 ```
 
+For quick access, add aliases to your `~/.bashrc`:
+
+```bash
+alias clippy='/path/to/clippy/start'
+alias clippy-stop='/path/to/clippy/stop'
+```
+
+Then reload with `source ~/.bashrc`.
+
 ## Limitations
 
 - Text-only clipboard (no images/files)
