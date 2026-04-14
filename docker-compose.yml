@@ -1,0 +1,19 @@
+services:
+  clippy:
+    build: .
+    network_mode: host
+    environment:
+      - DISPLAY=${DISPLAY:-}
+      - XDG_SESSION_TYPE=${XDG_SESSION_TYPE:-}
+      - XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/run/user/1000}
+      - WAYLAND_DISPLAY=${WAYLAND_DISPLAY:-}
+      - XAUTHORITY=${XAUTHORITY:-}
+      - HOST_IP=${HOST_IP:-}
+      - PORT=${PORT:-18080}
+    volumes:
+      # Wayland socket
+      - ${XDG_RUNTIME_DIR:-/run/user/1000}:${XDG_RUNTIME_DIR:-/run/user/1000}
+      # X11 socket + auth
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      - ${XAUTHORITY:-/dev/null}:${XAUTHORITY:-/dev/null}:ro
+    command: ["${PORT:-18080}"]
