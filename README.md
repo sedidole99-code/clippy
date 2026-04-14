@@ -45,8 +45,9 @@ HOST_IP=192.168.1.50 php clippy.php
 ### Docker
 
 ```bash
-docker compose up --build              # default port 18080
-PORT=3000 docker compose up --build    # custom port
+./start                # build and start in background (port 18080)
+PORT=3000 ./start      # custom port
+./stop                 # stop and remove the container
 ```
 
 ## Limitations
